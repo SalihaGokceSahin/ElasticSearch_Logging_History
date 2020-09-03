@@ -1,0 +1,21 @@
+﻿@using ElasticSearchLoggingApp.Models
+@model ElasticSearchLoggingApp.Models.categories
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm("create", "category", FormMethod.Post))
+{
+    <div class="form-group">
+        <label class="text">Category Name:</label>
+        <br />
+        <br />
+        @Html.TextBoxFor(m=>m.name)
+        <br />
+        <br />
+        <button type="submit">Save</button>
+        @Html.HiddenFor(m=>m.id)
+    </div>
+}
+

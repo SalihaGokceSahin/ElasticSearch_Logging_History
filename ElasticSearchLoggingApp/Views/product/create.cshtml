@@ -1,0 +1,31 @@
+﻿@model ElasticSearchLoggingApp.ViewModel.productViewModel
+@{
+    ViewBag.Title = "create";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+@using (Html.BeginForm("create", "product", FormMethod.Post))
+{
+<div class="form form-group">
+    <label>product name:&nbsp;&nbsp;</label>
+    @Html.TextBoxFor(m => m.product.name)
+    <br />
+    <label>product price:&nbsp;&nbsp;&nbsp;</label>
+    @Html.TextBoxFor(m => m.product.price)
+    <br />
+    <label>product count:&nbsp;&nbsp;</label>
+    @Html.TextBoxFor(m => m.product.count)
+    @*<br />*@
+    @*<label>expiration date:</label>*@
+    @*<input type="datetime-local" id="product_expiration_date" name="product.expiration_date" :value="date"/>*@
+    <!--<input type="datetime-local" id="product_expiration_date" name="product.expiration_date" pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}" value="" name="c_datetime"--> @*value="<?= str_replace(" ", "T", $row[5]) ?>"*@ <!--/>-->
+
+    <br />
+    <label>category name:</label>
+    @Html.DropDownListFor(m => m.product.categories_id, new SelectList(Model.category, "id", "name"))
+    @Html.HiddenFor(m => m.product.id)
+    <br />
+    <button type="submit">Save</button>
+</div>
+}
+
+

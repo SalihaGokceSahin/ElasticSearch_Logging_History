@@ -1,0 +1,27 @@
+﻿@model List<ElasticSearchLoggingApp.Models.categories>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared/_Layout.cshtml";
+}
+<h2>Category List</h2>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Category Id</th>
+            <th>Category Name</th>
+            <th>Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.name</td>
+                <td>@Html.ActionLink("Click to edit","edit",new { id = item.id })</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
